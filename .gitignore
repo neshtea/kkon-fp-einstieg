@@ -1,0 +1,59 @@
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Taken from https://gist.github.com/CWKSC/30f89ee8e70aacf2f71e262b84a8c786
+*.zip
+*.tar.gz
+.DS_Store
+build/
+out/
+.gradle/7.1/executionHistory/executionHistory.bin
+.gradle/7.1/executionHistory/executionHistory.lock
+.gradle/7.1/fileHashes/fileHashes.bin
+.gradle/7.1/fileHashes/fileHashes.lock
+.gradle/7.1/fileHashes/resourceHashesCache.bin
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle/buildOutputCleanup/outputFiles.bin
+.gradle/buildOutputCleanup/cache.properties
+.gradle/kotlin/sourceSetMetadata/
+.gradle/checksums/
