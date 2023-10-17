@@ -121,3 +121,45 @@ fun f(val: <A>): <B> =
 
 Schreibe danach Bedingungen in die Zweige, welche die einzelnen Fälle
 voneinander unterscheiden.
+
+
+## Konstruktionsanleitung 12 (Zusammengesetzte Daten: Datenanalyse)
+
+Zusammengesetzte Daten kannst Du an Formulierungen wie "ein X besteht aus ...",
+"ein X ist charakterisiert durch ..." oder "ein X hat ..." erkennen. Manchmal
+lautet die Formulierung etwas anders. Die daraus resultierende Datendefinition
+ist ein Kommentar im Programm in folgender Form:
+
+```kotlin
+// Ein X hat / besteht aus / ist charakterisiert durch:
+// - Bestandteil / Eigenschaft 1
+// - Bestandteil / Eigenschaft 2
+// ...
+// - Bestandteil / Eigenschaft n
+```
+
+Darauf folgt eine entsprechende Record-Definition. Dafür überlege Dir Namen für
+den Record-Typ `T` und für die Felder, `f_1. .... f_n` .Zu jedem Feld gehört eine Signatur
+
+## Konstruktionsanleitung 13 (Zusammengesetzte Daten als Eingabe: Schablone)
+
+Wenn Deine Funktion zusammengesetzte Daten als Eingabe akzeptiert (das ergibt
+sich aus der Signatur), gehe nach Schreiben des Gerüstes folgendermaßen vor:
+
+1. Für jede Komponente, schreibe `r.sel` in die Schablone, wobei sel der
+   Selektor der Komponente und r der Name des Record-Parameters ist, also zum
+   Beispiel: `wt.hour`
+2. Vervollständige die Schablone, indem Du einen Ausdruck konstruierst, indem
+   die Selektor-Anwendungen vorkommen.
+3. Es ist möglich, dass nicht alle Selektor-Anwendungen im Rumpf verwendet
+   werden: In diesem Fall lösche die Selektor-Anwendung wieder.
+
+## Konstruktionsanleitung 14 (Zusammengesetzte Daten als Ausgabe: Schablone)
+
+Wenn Deine Funktion zusammengesetzte Daten als Ausgabe hat, schreibe einen
+Aufruf des passenden Record-Konstruktors in den Rumpf, zunächst mit einer
+Ellipse für jedes Feld des Records, also zum Beispiel:
+
+```kotlin
+Wallclock(...)
+```
