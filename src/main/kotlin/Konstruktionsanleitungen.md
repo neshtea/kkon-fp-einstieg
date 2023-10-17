@@ -65,3 +65,59 @@ Funktion aus.
 ```kotlin
 fun billigStrom(kWh: Int): Double = 4.90 + kWh * 0.19
 ```
+## Konstruktionsanleitung 7 (Fallunterscheidung: Datenanalyse)
+
+Versuche, für die Datendefinition eine Formulierung "..ist eins der folgenden"
+zu finden. Wenn das möglich ist, beschreibt Deine Datendefinition eine
+Fallunterscheidung. Schreibe dann eine Auflistung aller Fälle, jeder Fall auf
+eine separate Zeile:
+
+```kotlin
+// Ein X ist eines der folgenden:
+// - Fall 1
+// - Fall 2
+// - ...
+// - Fall n
+```
+
+## Konstruktionsanleitung 8 (Aufzählung: Datenanalyse)
+
+Falls Deine Datendefinition eine Fallunterscheidung beschreibt und jeder der
+Fälle nur aus einem einzelnen Wert besteht, handelt es sich um eine /Aufzählung/.
+
+Schreibe für jede Aufzählung eine Signatur-Defnition der Form:
+
+```kotlin
+enum class Direction {
+    ...
+}
+```
+
+Achte darauf, dass die Anzahl der Fälle der Signatur-Definition der Anzahl der
+Fälle der Datendefinition entspricht.
+
+## Konstruktionsanleitung 9 (Schablone)
+
+Wenn Du das Gerüst fertiggestellt hast, benutze die Signatur und die
+dazugehörigen Datendefitionen, um Konstruktionsanleitungen mit ein oder
+mehreren Schablonen auszuwählen und übertrage die Elemente der Schablonen in den
+Rumpf der Funktion.
+
+## Konstruktionsanleitung 10 (Fallunterscheidung: Schablone)
+
+Wenn Du eine Funktion schreibst, die eine Fallunterscheidung als Eingabe
+verarbeitet, schreibe als Schablone in den Rumpf eine Verzweigung mit so
+vielen Zweigen, wie es in der Fallunterscheidung Fälle gibt, nach folgendem
+Muster:
+
+```kotlin
+fun f(val: <A>): <B> =
+  when (val) {
+    ... -> ...
+	...
+	... -> ...
+  }
+```
+
+Schreibe danach Bedingungen in die Zweige, welche die einzelnen Fälle
+voneinander unterscheiden.
