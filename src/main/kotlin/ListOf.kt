@@ -22,3 +22,7 @@ fun <A> listLength(xs: ListOf<A>): Int =
         is Cons ->
            1 + listLength(xs.rest)
     }
+
+/**
+ * Eine Liste von Dillos überfahren
+ */
