@@ -1,22 +1,13 @@
 import java.time.LocalDate
 import kotlin.math.max
 
-//Ein Supermarkt möchte seine Waren in einem Programm verwalten. Es gibt drei
-//Warenklassen:
-//
-//- *Essen* beschrieben durch einen Namen, den Stückpreis, das
-//Mindesthaltbarkeitsdatum und den aktuellen Bestand im Supermarkt
-//- *Getränke* beschrieben durch einen Namen, den Stückpreis, das
-//Mindesthaltbarkeitsdatum und den Bestand. Zusätzlich muss hier noch
-//festgehalten werden, ob Pfand verlangt wird.
-//- *Sonstige* beschrieben durch einen Namen, den Stückpreis und den Bestand.
-
 // Eine Ware ist eines der folgenden
 // - ein Essen
 // - ein Getraenk
 // - eine sonstige Ware
 sealed interface Ware {
     fun stueckpreis(): Double = stueckpreis(this)
+    // fun price(): Double
 }
 
 // Ein Essen besteht aus
@@ -27,7 +18,7 @@ sealed interface Ware {
 data class Essen(
     val name: String,
     val stueckpreis: Double,
-    val mdh: java.time.LocalDate,
+    val mdh: LocalDate,
     val bestand: Int
 ): Ware
 
@@ -43,7 +34,9 @@ data class Getraenk(
     val mdh: java.time.LocalDate,
     val bestand: Int,
     val kostetPfand: Boolean
-): Ware
+): Ware {
+    // override fun price() = this.stueckpreis
+}
 
 // Ein sonstiger Artikel besteht aus
 // - einem Namen
