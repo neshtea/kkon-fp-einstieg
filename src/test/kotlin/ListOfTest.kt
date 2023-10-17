@@ -34,4 +34,37 @@ class ListOfTest {
         assertEquals(None , listMin(Empty))
         assertEquals(Just(1), listMin(Cons(1, Cons(2, Cons(3, Empty)))))
     }
+
+    @Test
+    fun countZeroesTest() {
+        assertEquals(0, countZeroes(Empty))
+        assertEquals(0, countZeroes(Cons(1, Cons(2, Empty))))
+        assertEquals(2, countZeroes(Cons(0, Cons(1, Cons(0, Empty)))))
+    }
+
+    @Test
+    fun containsGreaterTenTest() {
+        assert(containsGreaterTen(Cons(11, Empty)))
+        assert(!containsGreaterTen(Empty))
+        assert(!containsGreaterTen(Cons(1, Cons(2, Empty))))
+    }
+
+    @Test
+    fun deleteOnceTest() {
+        assertEquals(Empty, deleteOnce(Empty, 42))
+        assertEquals(Cons(1, Cons(2, Empty)),
+            deleteOnce(Cons(1, Cons(2, Empty)), 42))
+        assertEquals(Cons(1, Empty),
+            deleteOnce(Cons(42, Cons(1, Empty)), 42))
+        assertEquals(Cons(1, Cons(42, Empty)),
+            deleteOnce(Cons(1, Cons(42, Cons(42, Empty))), 42))
+    }
+
+    @Test
+    fun sortTest() {
+        assertEquals(Empty, sortInts(Empty))
+        assertEquals(Cons(1, Empty), sortInts(Cons(1, Empty)))
+        assertEquals(Cons(1, Cons(2, Cons(3, Empty))),
+            sortInts(Cons(2, Cons(1, Cons(3, Empty)))))
+    }
 }

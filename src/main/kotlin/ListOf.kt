@@ -75,3 +75,56 @@ fun listMin(xs: ListOf<Int>): Maybe<Int> =
                     Just(min(restMin.value, xs.first))
             }
     }
+
+/**
+ * Anzahl der Nullen in einer Liste von Ints finden.
+ */
+fun countZeroes(xs: ListOf<Int>): Int =
+    when (xs) {
+        is Empty -> 0
+        is Cons ->
+            if (xs.first == 0) {
+                1 + countZeroes(xs.rest)
+            } else
+                countZeroes(xs.rest)
+    }
+
+/**
+ * Enthält eine Liste eine Zahl > 10.
+ */
+fun containsGreaterTen(xs: ListOf<Int>): Boolean =
+    when (xs) {
+        is Empty -> false
+        is Cons ->
+            xs.first > 10 || containsGreaterTen(xs.rest)
+    }
+
+/**
+ * Lösche das erste Vorkommen einer bestimmten Zahl aus einer Liste von Ints.
+ */
+fun deleteOnce(xs: ListOf<Int>, delete: Int): ListOf<Int> =
+    when (xs) {
+        is Empty -> Empty
+        is Cons ->
+            if (xs.first == delete) {
+                xs.rest
+            } else {
+                Cons(xs.first, deleteOnce(xs.rest, delete))
+            }
+    }
+
+/**
+ * Sortiere eine Liste von Integern aufsteigend.
+ */
+fun sortInts(xs: ListOf<Int>): ListOf<Int> =
+    when (xs) {
+        is Empty -> Empty
+        is Cons -> {
+            when (val m: Maybe<Int> = listMin(xs)) {
+                is None -> Empty
+                is Just ->
+                    Cons(m.value,
+                        sortInts(deleteOnce(xs, m.value)))
+            }
+        }
+    }
