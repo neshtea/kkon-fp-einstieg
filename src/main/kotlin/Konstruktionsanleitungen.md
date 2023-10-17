@@ -209,3 +209,17 @@ akzeptiert, kannst Du folgendermaßen konstruieren:
 Wenn Du eine Funktion schreibst, die Daten akzeptiert, in denen Selbstbezüge
 enthalten sind, dann schreibe an die Stellen der Selbstbezüge jeweils einen
 rekursiven Aufruf.
+
+
+## Konstruktionsanleitung 20 (Abstraktion)
+Wenn Du zwei Definitionen geschrieben hast, die inhaltlich verwandt sind und
+viele Ähnlichkeiten aufweisen, abstrahiere wie folgt:
+
+1. Kopiere eine der beiden Definitionen und gib ihr einen neuen Namen.
+2. Ersetze die Stellen, bei denen sich die beiden Definitionen unterscheiden,
+   jeweils durch eine neue Variable.
+3. Füge die neuen Variablen als Parameter zum lambda der Definition hin zu oder
+   füge ein neues lambda mit diesen Parametern ein. Du musst gegebenenfalls
+   rekursive Aufrufe der Funktion anpassen.
+4. Schreibe eine Signatur für die neue Funktion.
+5. Ersetze die beiden alten Definitionen durch Aufrufe der neuen Definition.
