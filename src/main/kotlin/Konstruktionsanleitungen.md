@@ -163,3 +163,43 @@ Ellipse für jedes Feld des Records, also zum Beispiel:
 ```kotlin
 Wallclock(...)
 ```
+
+
+## Konstruktionsanleitung 15 (Gemische Daten: Datenanalyse)
+
+Gemischte Daten sind Fallunterscheidungen, bei denen jeder Fall eine eigene
+Klasse von Daten mit eigener Signatur ist. Schreibe bei gemischten Daten eine
+Signatur-Definition der folgenden Form unter die Datendefinition:
+
+```kotlin
+// ein Sig ist eines der folgenden
+// - C1
+// - C2
+// - ...
+// - Cn
+sealed interface Sig
+
+data class C1: Sig
+data class C2: Sig
+...
+data class Cn: Sig
+```
+
+Sig ist die Signatur für die neue Datensorte; `C1` bis `Cn` sind die Signaturen,
+aus denen die neue Datensorte zusammengemischt ist.
+
+
+## Konstruktionsanleitung 16 (Gemische Daten: Schablone)
+
+Eine Schablone für eine Funktion und deren Testfälle, die gemischte Daten
+akzeptiert, kannst Du folgendermaßen konstruieren:
+
+- Schreibe Tests für jeden der Fälle.
+- Schreibe eine `when`-Verzweigung als Rumpf in die Schablone, die genau *n*
+  Zweige hat -- also genau soviele Zweige, wie es Fälle in der Datendefinition
+  beziehungsweise der Signatur gibt.
+- Schreibe für jeden Zweig eine Bedingung, der den entsprechenden Fall identifiziert.
+- Vervollständige die Zweige, indem Du eine Datenanalyse für jeden einzelnen
+  Fall vornimmst und ensprechende Hilfsfunktionen und Konstruktionsanleitungen
+  benutzt. Die übersichtlichsten Programme entstehen meist, wenn für jeden Fall
+  sparate Hilfsfunktionen definiert sind.
