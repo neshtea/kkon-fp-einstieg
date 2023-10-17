@@ -14,6 +14,8 @@ sealed interface ListOf<out A> {
         extract(this, f)
 
     fun <B> map(f: (A) -> B): ListOf<B> = map(this, f)
+
+    fun <A> empty(): ListOf<A> = Empty
 }
 
 val xs = Cons(1, Cons(2, Cons(3, Empty)))
